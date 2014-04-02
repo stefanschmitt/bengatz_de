@@ -17,6 +17,12 @@ gem 'figaro', :github=>"laserlemon/figaro"
 gem 'pundit'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
+group :production do
+	# Use MySQL as the production database
+	gem 'mysql'
+	# Use unicorn as the app server
+	gem 'unicorn'
+	end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
@@ -29,6 +35,9 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
+  # Use Capistrano for the deployment
+  gem 'capistrano'
+  gem 'rvm-capistrano'
 end
 group :development, :test do
   gem 'factory_girl_rails'
