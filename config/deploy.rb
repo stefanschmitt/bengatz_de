@@ -1,6 +1,6 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
-set :rvm_ruby_string, '1.9.3'
+set :rvm_ruby_string, '2.1.1'
 
 server "46.38.235.231", :web, :app, :db, primary: true
 
@@ -21,12 +21,12 @@ after 'deploy', 'deploy:cleanup'
 after 'deploy', 'deploy:migrate'
 
 namespace :deploy do
-	  %w[start stop restart reload].each do |command|
-		      desc "#{command} unicorn server"
-		          task command, roles: :app, except: {no_release: true} do
-				        run "sudo /etc/init.d/unicorn_#{application} #{command}"
-					    end
-			    end
+		%w[start stop restart reload].each do |command|
+		desc "#{command} unicorn server"
+		task command, roles: :app, except: {no_release: true} do
+	        run "sudo /etc/init.d/unicorn_#{application} #{command}"
+	    end
+	end
 
 # Use this if you know what you are doing.
 #

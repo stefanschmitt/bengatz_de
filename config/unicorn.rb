@@ -23,7 +23,7 @@ user "bofh", "www-data"
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
 #working_directory "/path/to/app/current" # available in 0.94.0+
-APP_PATH = "/var/customers/webs/stesch/bengatz.de/railsapp"
+APP_PATH = "/var/customers/webs/stesch/bengatz.de/current"
 working_directory APP_PATH
 
 # listen on both a Unix domain socket and a TCP port,
